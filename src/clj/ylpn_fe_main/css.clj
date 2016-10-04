@@ -2,5 +2,5 @@
   (:require [garden.def :refer [defstyles]]))
 
 (defstyles screen
-  [:body {:color "red"}]
-  [:.level1 {:color "green"}])
+  [:body {:background-color "#333333"}]
+  [:.level1 {:color "#ffffff"}])
