@@ -32,7 +32,7 @@
                      :source-paths ["src/clj"]
                      :stylesheet   ylpn-fe-main.css/screen
                      :compiler     {:output-to     "resources/public/css/screen.css"
-                                    :pretty-print? true}}]}
+                                    :pretty-print? false}}]} ;; compress
 
   :less {:source-paths ["less"]
          :target-path  "resources/public/css"}
