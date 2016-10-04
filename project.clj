@@ -60,13 +60,13 @@
      :source-paths ["src/cljs"]
      :jar true
      :compiler     {:main            ylpn-fe-main.core
-                    :output-to       "resources/public/js/compiled/app.js"
+                    :output-to       "resources/public/js/compiled/product/app.js"
                     :optimizations   :advanced
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}
     {:id           "test"
      :source-paths ["src/cljs" "test/cljs"]
-     :compiler     {:output-to     "resources/public/js/compiled/test.js"
+     :compiler     {:output-to     "resources/public/js/compiled/test/test.js"
                     :main          ylpn-fe-main.runner
                     :optimizations :none}}
     ]}
