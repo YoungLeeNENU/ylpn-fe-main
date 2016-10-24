@@ -28,10 +28,15 @@
   :figwheel {:css-dirs ["resources/public/css"]
              :ring-handler ylpn-fe-main.handler/dev-handler}
 
-  :garden {:builds [{:id           "screen"
+  :garden {:builds [{:id           "sample"
                      :source-paths ["src/clj"]
-                     :stylesheet   ylpn-fe-main.css/screen
-                     :compiler     {:output-to     "resources/public/css/screen.css"
+                     :stylesheet   ylpn-fe-main.css/sample
+                     :compiler     {:output-to     "resources/public/css/sample.css"
+                                    :pretty-print? false}}
+                    {:id           "homepage"
+                     :source-paths ["src/clj"]
+                     :stylesheet   ylpn-fe-main.css/homepage
+                     :compiler     {:output-to     "resources/public/css/homepage.css"
                                     :pretty-print? false}}]} ;; compress
 
   :less {:source-paths ["less"]
