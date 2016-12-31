@@ -62,7 +62,7 @@
               :class "ylpn-links"} "Young Lee"]
          ", a programming motherfucker."]]
        [:div {:class "footer-note"}
-        [:a {:href "#/man-younglee"
+        [:a {:href "#/"
              :class "ylpn-links"} "Back to where it belong"]]])))
 
 ;; main
