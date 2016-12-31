@@ -1,6 +1,6 @@
 # ylpn-fe-main
 
-A [re-frame](https://github.com/Day8/re-frame) application designed to ... well, that part is up to you.
+A [re-frame](https://github.com/Day8/re-frame) application designed to 构建个人主页前端
 
 ## Development Mode
 
