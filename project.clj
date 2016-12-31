@@ -2,8 +2,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.229"]
                  [reagent "0.6.0"]
-                 [binaryage/devtools "0.8.2"]
-                 [re-frame "0.8.0"]
+                 [re-frame "0.9.1"]
+                 [re-frisk "0.3.2"]
                  [org.clojure/core.async "0.2.391"]
                  [re-com "0.8.3"]
                  [secretary "1.2.3"]
@@ -28,23 +28,22 @@
   :figwheel {:css-dirs ["resources/public/css"]
              :ring-handler ylpn-fe-main.handler/dev-handler}
 
-  :garden {:builds [{:id           "sample"
+  :garden {:builds [{:id           "screen"
                      :source-paths ["src/clj"]
-                     :stylesheet   ylpn-fe-main.css/sample
-                     :compiler     {:output-to     "resources/public/css/sample.css"
-                                    :pretty-print? false}}
-                    {:id           "homepage"
-                     :source-paths ["src/clj"]
-                     :stylesheet   ylpn-fe-main.css/homepage
-                     :compiler     {:output-to     "resources/public/css/homepage.css"
-                                    :pretty-print? false}}]} ;; compress
+                     :stylesheet   ylpn-fe-main.css/screen
+                     :compiler     {:output-to     "resources/public/css/screen.css"
+                                    :pretty-print? true}}]}
 
   :less {:source-paths ["less"]
          :target-path  "resources/public/css"}
 
+  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+
   :profiles
   {:dev
-   {:dependencies []
+   {:dependencies [[binaryage/devtools "0.8.2"]
+                   [figwheel-sidecar "0.5.7"]
+                   [com.cemerick/piggieback "0.2.1"]]
 
     :plugins      [[lein-figwheel "0.5.7"]
                    [lein-doo "0.1.7"]]
@@ -59,20 +58,25 @@
                     :output-to            "resources/public/js/compiled/app.js"
                     :output-dir           "resources/public/js/compiled/out"
                     :asset-path           "js/compiled/out"
-                    :source-map-timestamp true}}
+                    :source-map-timestamp true
+                    :preloads             [devtools.preload]
+                    :external-config      {:devtools/config {:features-to-install :all}}
+                    }}
 
     {:id           "min"
      :source-paths ["src/cljs"]
      :jar true
      :compiler     {:main            ylpn-fe-main.core
-                    :output-to       "resources/public/js/compiled/product/app.js"
+                    :output-to       "resources/public/js/compiled/app.js"
                     :optimizations   :advanced
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}
+
     {:id           "test"
      :source-paths ["src/cljs" "test/cljs"]
-     :compiler     {:output-to     "resources/public/js/compiled/test/test.js"
-                    :main          ylpn-fe-main.runner
+     :compiler     {:main          ylpn-fe-main.runner
+                    :output-to     "resources/public/js/compiled/test.js"
+                    :output-dir    "resources/public/js/compiled/test/out"
                     :optimizations :none}}
     ]}
 

@@ -1,8 +1,8 @@
 (ns ylpn-fe-main.core
     (:require [reagent.core :as reagent]
               [re-frame.core :as re-frame]
-              [devtools.core :as devtools]
-              [ylpn-fe-main.handlers]
+              [re-frisk.core :refer [enable-re-frisk!]]
+              [ylpn-fe-main.events]
               [ylpn-fe-main.subs]
               [ylpn-fe-main.routes :as routes]
               [ylpn-fe-main.views :as views]
@@ -12,10 +12,11 @@
 (defn dev-setup []
   (when config/debug?
     (enable-console-print!)
-    (println "dev mode")
-    (devtools/install!)))
+    (enable-re-frisk!)                  ;for debug
+    (println "dev mode")))
 
 (defn mount-root []
+  (re-frame/clear-subscription-cache!)
   (reagent/render [views/main-panel]
                   (.getElementById js/document "app")))
 
@@ -24,5 +25,3 @@
   (re-frame/dispatch-sync [:initialize-db])
   (dev-setup)
   (mount-root))
-
-(init)

@@ -3,35 +3,39 @@
               [re-com.core :as re-com]))
 
 
-;; home
-
+;; Home
 (defn home-title []
   (let [name (re-frame/subscribe [:name])]
     (fn []
       [re-com/title
-       :label (str "Greeting from " @name ". This is the Home Page.")
+       :label (str @name "'s Personal Network")
        :level :level1])))
 
 (defn link-to-about-page []
-  [re-com/hyperlink-href
-   :label "go to About Page"
-   :href "#/about"])
+  (let [name (re-frame/subscribe [:name])]
+    (fn []
+      [re-com/hyperlink-href
+       :class "ylpn-links"
+       :label (str "About " @name)
+       :href "#/man-younglee"])))
 
 (defn home-panel []
   [re-com/v-box
-   :gap "1em"
+   :gap "5px"
    :children [[home-title] [link-to-about-page]]])
 
 
-;; about
-
+;; About
 (defn about-title []
-  [re-com/title
-   :label "This is the About Page."
-   :level :level1])
+  (let [name (re-frame/subscribe [:name])]
+    (fn []
+      [re-com/title
+       :label (str @name ", programs in Javascript, Python, Clojure and C")
+       :level :level1])))
 
 (defn link-to-home-page []
   [re-com/hyperlink-href
+   :class "ylpn-links"
    :label "go to Home Page"
    :href "#/"])
 
@@ -48,8 +52,7 @@
 (defmethod panels :about-panel [] [about-panel])
 (defmethod panels :default [] [:div])
 
-(defn show-panel
-  [panel-name]
+(defn show-panel [panel-name]
   [panels panel-name])
 
 (defn main-panel []

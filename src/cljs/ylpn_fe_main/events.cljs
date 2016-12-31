@@ -1,4 +1,4 @@
-(ns ylpn-fe-main.handlers
+(ns ylpn-fe-main.events
     (:require [re-frame.core :as re-frame]
               [ylpn-fe-main.db :as db]))
 
