@@ -8,6 +8,11 @@
    (:name db)))
 
 (re-frame/reg-sub
+ :cursor-show
+ (fn [db]
+   (:cursor-show db)))
+
+(re-frame/reg-sub
  :active-panel
  (fn [db _]
    (:active-panel db)))
