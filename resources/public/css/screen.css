@@ -1,7 +1,13 @@
 body {
   color: red;
+  background-color: #333333;
 }
 
 .level1 {
-  color: green;
+  color: #d7d7d7;
+}
+
+.ylpn-links {
+  color: #9f79ee;
+  text-decoration: none;
 }
