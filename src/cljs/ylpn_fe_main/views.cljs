@@ -10,7 +10,8 @@
     (fn []
       [re-com/title
        :label (str @name "'s Personal Network")
-       :level :level1])))
+       :level :level1
+       :class "ylpn-title"])))
 
 (defn link-to-about-page []
   (let [name (re-frame/subscribe [:name])]
@@ -33,7 +34,8 @@
     (fn []
       [re-com/title
        :label (str @name ", programs in Javascript, Python, Clojure and C")
-       :level :level1])))
+       :level :level1
+       :class "ylpn-text"])))
 
 (defn link-to-home-page []
   [re-com/hyperlink-href
