@@ -5,6 +5,8 @@
   [:body {:color "red"
           :background-color "#161A1F"}]
   [:.hide {:display "none"}]
+  [:.wx-img {:height "400px"
+             :width "400px"}]
   [:.level1 {:color "#d7d7d7"}]
   [:.ylpn-links {:color "#1e90ff"
                  :text-decoration "none"
