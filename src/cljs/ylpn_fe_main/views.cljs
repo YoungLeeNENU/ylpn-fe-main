@@ -4,6 +4,7 @@
 
 
 ;; Home
+
 (defn home-title []
   (let [name (re-frame/subscribe [:name])]
     (fn []
@@ -26,6 +27,7 @@
 
 
 ;; About
+
 (defn about-title []
   (let [name (re-frame/subscribe [:name])]
     (fn []
