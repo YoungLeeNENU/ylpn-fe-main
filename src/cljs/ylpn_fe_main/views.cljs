@@ -8,7 +8,7 @@
   (let [name (re-frame/subscribe [:name])]
     (fn []
       [:div
-       [:div {:class "ylpn-title level1"} "再见 2016 ✈️ 你好 2017"]
+       [:div {:class "ylpn-title level1"} "再见 2016, 你好 2017"]
        [:div {:class "artice-body"}
         [:section {:class "chapter-title ylpn-text"} "2016 年"]
         [:section {:class "chapter-body ylpn-text"} "我占卜了一次，非常灵验，或者被灵验了"]
