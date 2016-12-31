@@ -12,7 +12,7 @@
 (defn dev-setup []
   (when config/debug?
     (enable-console-print!)
-    (enable-re-frisk!)                  ;for debug
+    ;; (enable-re-frisk!)                  ;for debug
     (println "dev mode")))
 
 (defn mount-root []
